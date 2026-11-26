@@ -1,0 +1,22 @@
+/* One coherent illustrated family; progressive disclosure follows category selection. */
+.equipment-directory{container:equipment / inline-size;padding:1rem;margin-block-end:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.equipment-directory-summary{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;min-block-size:44px;cursor:pointer;list-style:none}
+.equipment-directory-summary::-webkit-details-marker{display:none}
+.equipment-directory-summary h2{flex:1 1 12rem;margin:0;font-size:var(--text-base);font-weight:500;letter-spacing:-.01em;color:var(--ink)}
+.equipment-current{font-size:var(--text-sm);color:var(--ink-soft)}
+.equipment-directory-summary svg{inline-size:18px;block-size:18px;stroke:currentColor;stroke-width:1.7;fill:none}
+.equipment-directory[open] .equipment-directory-summary svg{transform:rotate(180deg)}
+.equipment-types{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-block-start:16px}
+.equipment-types a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-inline-size:0;min-block-size:8.25rem;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:var(--text-sm);line-height:1.4;color:var(--ink-soft);text-align:center;overflow-wrap:anywhere;transition:background .15s,border-color .15s,color .15s}
+.equipment-type-art{display:block;flex:none;inline-size:min(5.25rem,100%);aspect-ratio:9/8;background-image:url("../equipment-types.webp?v=7");background-size:400% 300%;background-repeat:no-repeat;pointer-events:none}
+.equipment-type-label{min-inline-size:0;min-block-size:2.5rem;display:flex;align-items:center;justify-content:center}
+.equipment-types a:hover{background:var(--surface-muted);border-color:var(--line-strong);color:var(--ink)}
+.equipment-types a[aria-current="page"]{background:var(--surface-muted);border-color:var(--ink);color:var(--ink);font-weight:500}
+@container equipment (min-width:36rem){.equipment-types{grid-template-columns:repeat(3,minmax(0,1fr))}.equipment-types a{flex-direction:row;justify-content:flex-start;text-align:start;min-block-size:7rem;padding:12px;gap:10px}.equipment-type-art{inline-size:6rem;flex:0 0 6rem}.equipment-type-label{min-block-size:0;justify-content:flex-start}}
+@container equipment (min-width:64rem){.equipment-types{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@supports not (container-type:inline-size){@media(min-width:760px){.equipment-types{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(min-width:1100px){.equipment-types{grid-template-columns:repeat(4,minmax(0,1fr))}}}
+@media(min-width:761px){.equipment-directory{padding:22px 24px 24px}}
+
+html[data-catalog-section]:not([data-catalog-section="equipment"]) #equipmentDirectory{display:none}
+#productGrid{min-block-size:24rem}
+.catalog-loading{grid-column:1/-1;padding:24px;color:var(--muted)}

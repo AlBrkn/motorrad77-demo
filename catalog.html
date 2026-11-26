@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ru" data-type="product">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0C0D10"><meta name="page-type" content="product"><meta name="site-kind" content="other"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><meta property="og:title" content="Каталог — MOTORRAD77"><meta property="og:description" content="Мотоэкипировка, оригинальные запчасти Honda и тюнинг."><meta property="og:type" content="website"><meta property="og:image" content="assets/equipment.webp"><meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="MOTORRAD77 — мотоэкипировка Alpinestars, Dainese, оригинальные запчасти Honda и тюнинг.">
+<title>Каталог — MOTORRAD77</title>
+<link rel="preload" href="assets/golos-text.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="assets/fonts/oswald-600-cyrillic.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/oswald-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/shared.css?v=20">
+<link rel="stylesheet" href="assets/css/catalog.css?v=20">
+<script>
+// Resolve the initial route before painting, then let the catalog own updates.
+var catalogInitialView = (() => {
+  const params = new URLSearchParams(location.search);
+  const sections = {equipment:"Экипировка",honda:"Запчасти Honda",tuning:"Тюнинг"};
+  const types = {jackets:"Куртки",pants:"Штаны",suits:"Комбинезоны",boots:"Мотоботы",gloves:"Перчатки",helmets:"Шлемы",protection:"Защита спины и груди",base:"Термобельё и базовые слои",rain:"Дождевики",bags:"Сумки и рюкзаки",accessories:"Аксессуары"};
+  const section = Object.hasOwn(sections,params.get("section")) ? params.get("section") : "all";
+  const type = section === "equipment" && Object.hasOwn(types,params.get("type")) ? params.get("type") : "all";
+  document.documentElement.dataset.catalogSection = section;
+  const subtitles = {equipment:"Подбери тип экипировки, бренд, пол и размер.",honda:"Рычаги, ручки с подогревом, крышки двигателя и пластик. Подбор по модели, году и VIN.",tuning:"Компоненты и аксессуары для доработки мотоцикла."};
+  return {type,title:type !== "all" ? types[type] : sections[section] || "Каталог товаров",subtitle:subtitles[section] || "Выберите категорию на главной странице или найдите товар."};
+})();
+</script>
+<link rel="stylesheet" href="assets/css/redesign.css?v=20"><link rel="stylesheet" href="assets/css/speed-fonts.css?v=20"><link rel="stylesheet" href="assets/css/speed.css?v=20"></head>
+<body class="catalog-page">
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+<div class="progress" aria-hidden="true"><i></i></div>
+
+<header class="topbar"><div class="wrap topbar-inner">
+<a class="brand" translate="no" href="index.html" aria-label="MOTORRAD77 — главная">MOTORRAD<span class="brand-77">77</span></a>
+<nav class="main-nav" aria-label="Главная навигация"><a href="catalog.html?section=equipment">Экипировка</a><a href="catalog.html?section=honda">Honda</a><a href="catalog.html?section=tuning">Тюнинг</a></nav>
+<div class="header-actions"><button class="button header-admin" type="button" onclick="openAdmin()">Админка</button><a class="button button-secondary header-contact" href="https://t.me/motorrad_77" target="_blank" rel="noopener">Telegram <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></svg></a><button class="icon-button button-secondary mobile-menu-button" type="button" aria-label="Открыть меню" aria-controls="mobileNav" aria-expanded="false" onclick="toggleMobileNav()"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg></button></div></div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация"><a href="index.html">Главная</a><a href="catalog.html?section=equipment">Экипировка <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a><a href="catalog.html?section=honda">Запчасти Honda <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a><a href="catalog.html?section=tuning">Тюнинг <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a><a href="https://t.me/motorrad_77" target="_blank" rel="noopener">Связаться в Telegram <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></svg></a><button type="button" onclick="toggleMobileNav(false);openAdmin()">Управление каталогом</button></nav></header>
+
+<main id="main">
+  <section class="section wrap catalog-section" id="catalog">
+    <div class="catalog-top">
+      <div class="section-heading">
+        <div><a class="back-link" href="index.html#categories"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m14 6-6 6 6 6M8 12h12"/></svg>Все разделы</a><h1 class="section-title" id="catalogTitle">Каталог</h1><p class="section-note" id="catalogSubtitle">Выберите категорию на главной странице или найдите товар.</p></div>
+      </div>
+      <div class="catalog-cover" aria-hidden="true"><img class="cover-equipment" src="assets/equipment.webp" alt="" width="1536" height="1024"><img class="cover-honda" src="assets/honda.webp" alt="" width="1536" height="1024"><img class="cover-tuning" src="assets/tuning.svg" alt="" width="400" height="210"></div>
+    </div>
+
+    <script>
+    document.getElementById("catalogTitle").textContent = catalogInitialView.title;
+    document.getElementById("catalogSubtitle").textContent = catalogInitialView.subtitle;
+    </script>
+    <div class="demo-note" id="demoNote" hidden>
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></svg>
+      <span>Ищите товары по названию, бренду, размеру или артикулу.</span>
+    </div>
+
+    <nav class="catalog-sections" aria-label="Разделы каталога">
+      <a href="catalog.html" data-section="all">Все товары</a>
+      <a href="catalog.html?section=equipment" data-section="equipment">Экипировка</a>
+      <a href="catalog.html?section=honda" data-section="honda">Запчасти Honda</a>
+      <a href="catalog.html?section=tuning" data-section="tuning">Тюнинг</a>
+    </nav>
+    <div class="catalog-toolbar">
+      <div class="search-row">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg>
+        <input id="searchInput" class="search-input" type="search" placeholder="Поиск по названию, бренду, размеру или артикулу" aria-label="Поиск по каталогу" oninput="renderCatalog()" name="searchInput" autocomplete="off">
+      </div>
+      <button class="button button-secondary filter-toggle" id="filterToggle" type="button" aria-expanded="false" aria-controls="filterPanel" onclick="toggleFilters()">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 7h16M7 12h10m-7 5h4"/><circle cx="8" cy="7" r="1.5"/><circle cx="15" cy="12" r="1.5"/></svg>
+        Фильтры
+      </button>
+    </div>
+    <div class="active-filters" id="activeFilters" aria-live="polite"></div>
+    <div class="filter-panel" id="filterPanel" hidden>
+      <div class="filter-grid">
+        <div class="filter-field"><label for="categoryFilter">Раздел</label><select class="filter-select" id="categoryFilter" onchange="onCategoryFilterChange()" name="categoryFilter" autocomplete="off"><option value="all">Все разделы</option><option value="equipment">Экипировка</option><option value="honda">Запчасти Honda</option><option value="tuning">Тюнинг</option></select></div>
+        <div class="filter-field" id="subcategoryField"><label for="subcategoryFilter">Категория экипировки</label><select class="filter-select" id="subcategoryFilter" onchange="renderCatalog()" name="subcategoryFilter" autocomplete="off"><option value="all">Вся экипировка</option><option value="jackets">Куртки</option><option value="pants">Штаны</option><option value="suits">Комбинезоны</option><option value="boots">Мотоботы</option><option value="gloves">Перчатки</option><option value="helmets">Шлемы</option><option value="protection">Защита спины и груди</option><option value="base">Термобельё и базовые слои</option><option value="rain">Дождевики</option><option value="bags">Сумки и рюкзаки</option><option value="accessories">Аксессуары</option></select></div>
+        <div class="filter-field"><label for="brandFilter">Бренд</label><select class="filter-select" id="brandFilter" onchange="renderCatalog()" name="brandFilter" autocomplete="off"><option value="all">Все бренды</option></select></div>
+        <div class="filter-field" id="genderField"><label for="genderFilter">Пол</label><select class="filter-select" id="genderFilter" onchange="renderCatalog()" name="genderFilter" autocomplete="off"><option value="all">Любой</option><option value="male">Мужское</option><option value="female">Женское</option><option value="unisex">Унисекс</option></select></div>
+        <div class="filter-field" id="sizeField"><label for="sizeFilter">Размер</label><select class="filter-select" id="sizeFilter" onchange="renderCatalog()" name="sizeFilter" autocomplete="off"><option value="all">Любой размер</option></select></div>
+        <div class="filter-field"><label for="statusFilter">Наличие</label><select class="filter-select" id="statusFilter" onchange="renderCatalog()" name="statusFilter" autocomplete="off"><option value="all">Любое</option><option value="В наличии">В наличии</option><option value="В пути">В пути</option><option value="Под заказ">Под заказ</option><option value="Продано">Продано</option><option value="Уточнить">Уточнить</option></select></div>
+      </div>
+      <div class="filter-bottom">
+        <span class="filter-help">Для запчастей Honda отдельные категории пока не используются.</span>
+        <button class="clear-filters" type="button" onclick="clearFilters()">Сбросить фильтры</button>
+      </div>
+    </div>
+
+    <details open class="equipment-directory" id="equipmentDirectory" aria-labelledby="equipmentDirectoryTitle">
+      <summary class="equipment-directory-summary"><h2 id="equipmentDirectoryTitle">Категории экипировки</h2><span id="equipmentCurrent" class="equipment-current">Вся экипировка</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <nav class="equipment-types" id="equipmentTypes" aria-label="Категории экипировки">
+<a href="catalog.html?section=equipment" data-equipment-type="all" aria-current="page" onclick="if(typeof chooseEquipmentType==='function')chooseEquipmentType(event,'all')"><span class="equipment-type-art" aria-hidden="true" style="background-position:0.0% 0%"></span><span class="equipment-type-label">Вся экипировка</span></a>
+<a href="catalog.html?section=equipment&amp;type=jackets" data-equipment-type="jackets" onclick="if(typeof chooseEquipmentType==='function')chooseEquipmentType(event,'jackets')"><span class="equipment-type-art" aria-hidden="true" style="background-position:33.333333333333336% 0%"></span><span class="equipment-type-label">Куртки</span></a>
+<a href="catalog.html?section=equipment&amp;type=pants" data-equipment-type="pants" onclick="if(typeof chooseEquipmentType==='function')chooseEquipmentType(event,'pants')"><span class="equipment-type-art" aria-hidden="true" style="background-position:66.66666666666667% 0%"></span><span class="equipment-type-label">Штаны</span></a>
+<a href="catalog.html?section=equipment&amp;type=suits" data-equipment-type="suits" onclick="if(typeof chooseEquipmentType==='function')chooseEquipmentType(event,'suits')"><span class="equipment-type-art" aria-hidden="true" style="background-position:100.0% 0%"></span><span class="equipment-type-label">Комбинезоны</span></a>
+<a href="catalog.html?section=equipment&amp;type=boots" data-equipment-type="boots" onclick="if(typeof chooseEquipmentType==='function')chooseEquipmentType(event,'boots')"><span class="equipment-type-art" aria-hidden="true" style="background-position:0.0% 50%"></span><span class="equipment-type-label">Мотоботы</span></a>
+<a href="catalog.html?section=equipment&amp;type=gloves" data-equipment-type="gloves" onclick="if(typeof chooseEquipmentType==='function')chooseEquipmentType(event,'gloves')"><span class="equipment-type-art" aria-hidden="true" style="background-position:33.333333333333336% 50%"></span><span class="equipment-type-label">Перчатки</span></a>
+<a href="catalog.html?section=equipment&amp;type=helmets" data-equipment-type="helmets" onclick="if(typeof chooseEquipmentType==='function')chooseEquipmentType(event,'helmets')"><span class="equipment-type-art" aria-hidden="true" style="background-position:66.66666666666667% 50%"></span><span class="equipment-type-label">Шлемы</span></a>
+<a href="catalog.html?section=equipment&amp;type=protection" data-equipment-type="protection" onclick="if(typeof chooseEquipmentType==='function')chooseEquipmentType(event,'protection')"><span class="equipment-type-art" aria-hidden="true" style="background-position:100.0% 50%"></span><span class="equipment-type-label">Защита</span></a>
+<a href="catalog.html?section=equipment&amp;type=base" data-equipment-type="base" onclick="if(typeof chooseEquipmentType==='function')chooseEquipmentType(event,'base')"><span class="equipment-type-art" aria-hidden="true" style="background-position:0.0% 100%"></span><span class="equipment-type-label">Термобельё</span></a>
+<a href="catalog.html?section=equipment&amp;type=rain" data-equipment-type="rain" onclick="if(typeof chooseEquipmentType==='function')chooseEquipmentType(event,'rain')"><span class="equipment-type-art" aria-hidden="true" style="background-position:33.333333333333336% 100%"></span><span class="equipment-type-label">Дождевики</span></a>
+<a href="catalog.html?section=equipment&amp;type=bags" data-equipment-type="bags" onclick="if(typeof chooseEquipmentType==='function')chooseEquipmentType(event,'bags')"><span class="equipment-type-art" aria-hidden="true" style="background-position:66.66666666666667% 100%"></span><span class="equipment-type-label">Сумки и рюкзаки</span></a>
+<a href="catalog.html?section=equipment&amp;type=accessories" data-equipment-type="accessories" onclick="if(typeof chooseEquipmentType==='function')chooseEquipmentType(event,'accessories')"><span class="equipment-type-art" aria-hidden="true" style="background-position:100.0% 100%"></span><span class="equipment-type-label">Аксессуары</span></a>
+</nav>
+    </details>
+    <script>
+    document.getElementById("equipmentDirectory").open = !matchMedia("(max-width:760px)").matches || catalogInitialView.type === "all";
+    </script>
+
+    <div class="sort-row">
+      <p class="sort-summary" id="catalogStatus" role="status" aria-live="polite" tabindex="-1">Загрузка каталога…</p>
+      <div class="sort-control"><label for="sortFilter">Сортировка</label><select aria-label="Сортировка товаров" id="sortFilter" onchange="renderCatalog()" name="sortFilter" autocomplete="off"><option value="available">Сначала в наличии</option><option value="newest">Сначала новые</option><option value="priceAsc">Сначала дешевле</option><option value="priceDesc">Сначала дороже</option><option value="name">По названию</option></select></div>
+    </div>
+
+    <h2 class="sr-only" id="resultsHeading">Товары</h2>
+    <div class="product-grid" id="productGrid" role="region" aria-labelledby="resultsHeading" aria-busy="true"><div class="catalog-loading" aria-hidden="true">Загрузка каталога…</div></div>
+    <div class="catalog-more" id="catalogMore" hidden>
+      <button class="button button-secondary" id="catalogMoreButton" type="button" onclick="toggleCatalogPreview()">Показать все товары</button>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="contact"><div class="wrap">
+<div class="footer-contact"><h2 data-moment="word-highlight">Подберём то,<br>что нужно тебе.</h2><div><p>Уточним наличие, размер и условия заказа.<br>Для запчастей Honda — модель, год и VIN.</p><a class="button button-primary" href="https://t.me/motorrad_77" target="_blank" rel="noopener">Обсудить заказ <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></svg></a></div></div>
+<div class="footer-inner"><div><a class="brand" translate="no" href="index.html">MOTORRAD<span class="brand-77">77</span></a><div class="footer-copy">Мотоэкипировка · Запчасти Honda · Тюнинг</div></div><div class="footer-links"><a href="catalog.html">Каталог</a><a href="https://t.me/motorrad_77" target="_blank" rel="noopener">Telegram <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></svg></a></div></div></div></footer>
+
+<!-- Product details -->
+<div class="overlay" id="productOverlay" role="dialog" aria-modal="true" aria-labelledby="detailTitle" onclick="overlayClose(event,'productOverlay')">
+  <div class="dialog product-dialog">
+    <div class="dialog-header"><div><h2>Информация о товаре</h2><p>Характеристики и условия уточняются перед заказом</p></div><button class="close-button" type="button" aria-label="Закрыть" onclick="closeProductDetail()"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+    <div id="productDetail"></div>
+  </div>
+</div>
+
+<!-- Admin -->
+<div class="overlay" id="adminOverlay" role="dialog" aria-modal="true" aria-labelledby="adminTitle" onclick="overlayClose(event,'adminOverlay')">
+  <div class="dialog admin-dialog">
+    <div class="dialog-header"><div><h2 id="adminTitle">Управление каталогом</h2><p>Добавление, редактирование и удаление товаров</p></div><button class="close-button" type="button" aria-label="Закрыть" onclick="closeAdmin()"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+    <div class="admin-layout">
+      <div class="admin-form-panel">
+        <div class="admin-notice">Демо-режим: изменения сохраняются только в этом браузере. Для публичного сайта потребуется сервер, база данных и авторизация администратора.</div>
+        <details class="ai-helper">
+          <summary>Помощник заполнения карточки · демо</summary><div class="ai-helper-body">
+          <p id="aiTextHelp">Вставь текст объявления — помощник попробует определить бренд, категорию, размер и цену. Настоящий ИИ и поиск фотографий пока не подключены.</p>
+          <label for="aiText">Текст объявления</label><textarea aria-describedby="aiTextHelp" class="admin-textarea" id="aiText" placeholder="Например: Новая куртка Alpinestars GP Force V2, размер 54, мужская, 34 000 руб." name="aiText" autocomplete="off"></textarea>
+          <button class="button button-secondary" type="button" onclick="parseProductText()">Заполнить поля из текста</button>
+        </div></details>
+        <h3 class="panel-title" id="formTitle">Новая карточка товара</h3>
+        <form id="productForm" onsubmit="saveProduct(event)">
+          <div class="admin-form-grid">
+            <div class="admin-field"><label for="fcat">Раздел *</label><select class="admin-select" id="fcat" required onchange="updateAdminFields()" name="fcat" autocomplete="off"><option value="equipment">Экипировка</option><option value="honda">Запчасти Honda</option><option value="tuning">Тюнинг</option></select></div>
+            <div class="admin-field" id="fsubcategoryWrap"><label for="fsubcategory">Категория</label><select class="admin-select" id="fsubcategory" name="fsubcategory" autocomplete="off"><option value="jackets">Куртки</option><option value="pants">Штаны</option><option value="suits">Комбинезоны</option><option value="boots">Мотоботы</option><option value="gloves">Перчатки</option><option value="helmets">Шлемы</option><option value="protection">Защита спины и груди</option><option value="base">Термобельё и базовые слои</option><option value="rain">Дождевики</option><option value="bags">Сумки и рюкзаки</option><option value="accessories">Аксессуары</option></select></div>
+            <div class="admin-field"><label for="fbrand">Бренд</label><input class="admin-input" id="fbrand" placeholder="Alpinestars, Dainese, Honda Genuine" name="fbrand" autocomplete="off"></div>
+            <div class="admin-field"><label for="fname">Название товара *</label><input class="admin-input" id="fname" required placeholder="Например, GP Force V2" name="fname" autocomplete="off" aria-describedby="fnameError"><p class="field-error" id="fnameError" role="alert" hidden>Введите название товара.</p></div>
+            <div class="admin-field" id="fgenderWrap"><label for="fgender">Пол</label><select class="admin-select" id="fgender" name="fgender" autocomplete="off"><option value="">Не указан</option><option value="male">Мужское</option><option value="female">Женское</option><option value="unisex">Унисекс</option></select></div>
+            <div class="admin-field" id="fsizeWrap"><label for="fsize">Размер</label><input class="admin-input" id="fsize" placeholder="52, 54, XL" name="fsize" autocomplete="off"></div>
+            <div class="admin-field"><label for="farticle">Артикул / код</label><input class="admin-input" id="farticle" spellcheck="false" placeholder="OEM part number" name="farticle" autocomplete="off"></div>
+            <div class="admin-field"><label for="fprice">Цена, ₽</label><input class="admin-input" id="fprice" type="number" min="0" step="1" inputmode="numeric" placeholder="Например, 34000" name="fprice" autocomplete="off"></div>
+            <div class="admin-field"><label for="fstatus">Статус</label><select class="admin-select" id="fstatus" name="fstatus" autocomplete="off"><option>В наличии</option><option>В пути</option><option>Под заказ</option><option>Продано</option><option>Уточнить</option></select></div>
+            <div class="admin-field full" id="fcompatWrap"><label for="fcompat">Совместимость / модели мотоциклов</label><input class="admin-input" id="fcompat" placeholder="Например, Honda CB650R 2024–2026" name="fcompat" autocomplete="off"></div>
+            <div class="admin-field full"><label for="fdescription">Описание</label><textarea class="admin-textarea" id="fdescription" placeholder="Состояние, комплектация, особенности товара" name="fdescription" autocomplete="off"></textarea></div>
+            <div class="admin-field full" id="fmeasureWrap"><label for="fmeasure">Параметры размера</label><textarea class="admin-textarea" id="fmeasure" placeholder="Рост, обхват груди и другие параметры. Указывай только подтверждённые данные." name="fmeasure" autocomplete="off"></textarea><span class="admin-help">Не добавляй приблизительные мерки как официальные — отмечай, если это ориентир.</span></div>
+            <div class="admin-field full"><label for="fimages">Фотографии товара</label><div class="image-drop"><input id="fimages" type="file" accept="image/*" multiple onchange="handleImageFiles(event)" name="fimages" autocomplete="off"><span class="admin-help">Можно выбрать несколько фотографий. Изображения автоматически уменьшаются для экономии места.</span><p id="imageProcessingStatus" role="status" hidden>Обработка фотографий…</p><div class="image-preview" id="imagePreview"></div></div></div>
+          </div>
+
+        </form>
+      </div>
+      <div class="admin-list-panel">
+        <h3 class="panel-title">Товары в каталоге <span id="adminProductCount" class="catalog-count"></span></h3>
+        <input class="admin-search" id="adminSearch" type="search" placeholder="Найти товар в списке" oninput="renderAdminList()" aria-label="Поиск товара в админке" name="adminSearch" autocomplete="off">
+        <div class="admin-list" id="adminList"></div>
+      </div>
+    </div>
+<div class="admin-form-actions"><button class="button button-primary" id="saveProductButton" type="submit" form="productForm">Сохранить товар</button><button class="button button-secondary" id="clearProductFormButton" type="button" onclick="resetProductForm()">Очистить форму</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/js/navigation.js?v=20" defer></script>
+<script src="assets/js/motion.js?v=20" defer></script>
+<script src="assets/js/catalog-data.js?v=1" defer></script>
+<script src="assets/js/partner-catalog.js?v=1" defer></script>
+<script src="assets/js/manufacturer-data.js?v=1" defer></script>
+<script src="assets/js/products.js?v=11" defer></script>
+<script src="assets/js/utils.js?v=12" defer></script>
+<script src="assets/js/filters.js?v=9" defer></script>
+<script src="assets/js/catalog.js?v=11" defer></script>
+<script type="module" src="assets/moments/moments.js"></script></body>
+</html>
